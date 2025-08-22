@@ -762,6 +762,7 @@ extern const bfd_target powerpc_elf32_vxworks_vec;
 extern const bfd_target powerpc_elf64_vec;
 extern const bfd_target powerpc_elf64_le_vec;
 extern const bfd_target powerpc_elf64_fbsd_vec;
+extern const bfd_target powerpc_elf64_celloslv2_vec;
 extern const bfd_target powerpc_pe_vec;
 extern const bfd_target powerpc_pe_le_vec;
 extern const bfd_target powerpc_pei_vec;
@@ -1155,6 +1156,7 @@ static const bfd_target * const _bfd_target_vector[] =
 	&powerpc_elf64_vec,
 	&powerpc_elf64_le_vec,
 	&powerpc_elf64_fbsd_vec,
+	&powerpc_elf64_celloslv2_vec,
 #endif
 	&powerpc_pe_vec,
 	&powerpc_pe_le_vec,

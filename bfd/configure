@@ -14829,6 +14829,7 @@ do
     powerpc_elf64_vec)		 tb="$tb elf64-ppc.lo elf64-gen.lo elf64.lo $elf"; target_size=64 ;;
     powerpc_elf64_le_vec)	 tb="$tb elf64-ppc.lo elf64-gen.lo elf64.lo $elf" target_size=64 ;;
     powerpc_elf64_fbsd_vec)	 tb="$tb elf64-ppc.lo elf64-gen.lo elf64.lo $elf" target_size=64 ;;
+    powerpc_elf64_celloslv2_vec)  tb="$tb elf64-ppc.lo elf64-gen.lo elf64.lo $elf" target_size=64 ;;
     powerpc_pe_vec)		 tb="$tb pe-ppc.lo peigen.lo $coff" ;;
     powerpc_pe_le_vec)		 tb="$tb pe-ppc.lo peigen.lo $coff" ;;
     powerpc_pei_vec)		 tb="$tb pei-ppc.lo peigen.lo $coff" ;;

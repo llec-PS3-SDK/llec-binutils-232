@@ -66,6 +66,7 @@
 #define ELFOSABI_AIX	      7	/* AIX */
 #define ELFOSABI_IRIX	      8	/* IRIX */
 #define ELFOSABI_FREEBSD      9	/* FreeBSD */
+#define ELFOSABI_CELLOSLV2    102   /* CellOS Lv-2 */
 #define ELFOSABI_TRU64	     10	/* TRU64 UNIX */
 #define ELFOSABI_MODESTO     11	/* Novell Modesto */
 #define ELFOSABI_OPENBSD     12	/* OpenBSD */

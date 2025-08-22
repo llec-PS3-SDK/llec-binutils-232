@@ -544,6 +544,10 @@ powerpc64-*-freebsd*)
 			tdir_elf32ppc=`echo "${targ_alias}" | sed -e 's/64//'`
 			tdir_elf32ppc_fbsd=$tdir_elf32ppc
 			;;
+powerpc64-*-celloslv2)
+			targ_emul=elf64ppc_celloslv2
+			targ_extra_emuls="elf64ppc"
+			;;
 powerpc-*-vxworks*)
 			targ_emul=elf32ppcvxworks
 			targ_extra_emuls="elf32ppc elf32ppclinux elf32ppcsim" ;;

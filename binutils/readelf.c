@@ -2382,7 +2382,7 @@ get_machine_name (unsigned e_machine)
     case EM_TPC:		return "Tenor Network TPC processor";
     case EM_SNP1K:	        return "Trebia SNP 1000 processor";
       /* 100 */
-    case EM_ST200:		return "STMicroelectronics ST200 microcontroller";  
+    case EM_ST200:		return "STMicroelectronics ST200 microcontroller";
     case EM_IP2K_OLD:
     case EM_IP2K:		return "Ubicom IP2xxx 8-bit microcontrollers";
     case EM_MAX:		return "MAX Processor";
@@ -2498,7 +2498,7 @@ get_machine_name (unsigned e_machine)
     case EM_MT:                 return "Morpho Techologies MT processor";
     case EM_ALPHA:		return "Alpha";
     case EM_WEBASSEMBLY:	return "Web Assembly";
-    case EM_DLX:		return "OpenDLX";  
+    case EM_DLX:		return "OpenDLX";
     case EM_XSTORMY16:		return "Sanyo XStormy16 CPU core";
     case EM_IQ2000:       	return "Vitesse IQ2000";
     case EM_M32C_OLD:
@@ -3762,6 +3762,13 @@ get_osabi_name (Filedata * filedata, unsigned int osabi)
       if (osabi >= 64)
 	switch (filedata->file_header.e_machine)
 	  {
+	  case EM_PPC64:
+		if (osabi == ELFOSABI_CELLOSLV2)
+		{
+			return "CellOS Lv-2";
+		}
+		break;
+
 	  case EM_ARM:
 	    switch (osabi)
 	      {
@@ -11421,7 +11428,7 @@ get_symbol_version_string (Filedata *                   filedata,
 
       if (ivd.vd_ndx == (vers_data & VERSYM_VERSION))
 	{
-	  if (ivd.vd_ndx == 1 && ivd.vd_flags == VER_FLG_BASE) 
+	  if (ivd.vd_ndx == 1 && ivd.vd_flags == VER_FLG_BASE)
 	    return NULL;
 
 	  off -= ivd.vd_next;
@@ -12468,7 +12475,7 @@ is_32bit_abs_reloc (Filedata * filedata, unsigned int reloc_type)
     case EM_OR1K:
       return reloc_type == 1; /* R_OR1K_32.  */
     case EM_PARISC:
-      return (reloc_type == 1 /* R_PARISC_DIR32.  */	      
+      return (reloc_type == 1 /* R_PARISC_DIR32.  */
 	      || reloc_type == 2 /* R_PARISC_DIR21L.  */
 	      || reloc_type == 41); /* R_PARISC_SECREL32.  */
     case EM_PJ:
@@ -13707,7 +13714,7 @@ load_specific_debug_section (enum dwarf_section_display_enum  debug,
   struct dwarf_section * section = &debug_displays [debug].section;
   char buf [64];
   Filedata * filedata = (Filedata *) data;
-  
+
   if (section->start != NULL)
     {
       /* If it is already loaded, do nothing.  */
@@ -17611,7 +17618,7 @@ print_gnu_note (Filedata * filedata, Elf_Internal_Note *pnote)
     case NT_GNU_PROPERTY_TYPE_0:
       print_gnu_property_note (filedata, pnote);
       break;
-      
+
     default:
       /* Handle unrecognised types.  An error message should have already been
 	 created by get_gnu_elf_note_type(), so all that we need to do is to
@@ -18136,7 +18143,7 @@ same_section (Filedata * filedata, unsigned long addr1, unsigned long addr2)
 
   a1 = find_section_by_address (filedata, addr1);
   a2 = find_section_by_address (filedata, addr2);
-  
+
   return a1 == a2 && a1 != NULL;
 }
 
@@ -18200,7 +18207,7 @@ print_gnu_build_attribute_description (Elf_Internal_Note *  pnote,
       start = byte_get ((unsigned char *) pnote->descdata, 8);
       end = byte_get ((unsigned char *) pnote->descdata + 8, 8);
       break;
-      
+
     default:
       error (_("    <invalid description size: %lx>\n"), pnote->descsz);
       printf (_("    <invalid descsz>"));
@@ -18495,7 +18502,7 @@ print_gnu_build_attribute_name (Elf_Internal_Note * pnote)
 
   if (do_wide && left > 0)
     printf ("%-*s", left, " ");
-    
+
   return TRUE;
 }
 
@@ -19509,7 +19516,7 @@ process_archive (Filedata * filedata, bfd_boolean is_thin_archive)
 	  /* PR 24049 - we cannot use filedata->file_name as this will
 	     have already been freed.  */
 	  error (_("%s: failed to read archive header\n"), arch.file_name);
-	    
+
           ret = FALSE;
           break;
         }
@@ -19603,7 +19610,7 @@ process_archive (Filedata * filedata, bfd_boolean is_thin_archive)
 
 	  thin_filedata.handle = nested_arch.file;
 	  thin_filedata.file_name = qualified_name;
-	  
+
           if (! process_object (& thin_filedata))
 	    ret = FALSE;
         }

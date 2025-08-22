@@ -446,6 +446,7 @@ ALL_64_EMULATION_SOURCES = \
 	eelf64mmix.c \
 	eelf64ppc.c \
 	eelf64ppc_fbsd.c \
+	eelf64ppc_celloslv2.c \
 	eelf64rdos.c \
 	eelf64tilegx.c \
 	eelf64tilegx_be.c \
@@ -1817,6 +1818,11 @@ eelf64ppc.c: $(srcdir)/emulparams/elf64ppc.sh \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eelf64ppc_fbsd.c: $(srcdir)/emulparams/elf64ppc_fbsd.sh \
+  $(srcdir)/emulparams/dynamic_undefined_weak.sh \
+  $(srcdir)/emultempl/ppc64elf.em ldemul-list.h \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eelf64ppc_celloslv2.c: $(srcdir)/emulparams/elf64ppc_celloslv2.sh \
   $(srcdir)/emulparams/dynamic_undefined_weak.sh \
   $(srcdir)/emultempl/ppc64elf.em ldemul-list.h \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}

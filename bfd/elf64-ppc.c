@@ -15826,3 +15826,21 @@ ppc64_elf_finish_dynamic_sections (bfd *output_bfd,
 #define elf64_bed	elf64_powerpc_fbsd_bed
 
 #include "elf64-target.h"
+
+/* CellOS-Lv2 support */
+
+#undef  TARGET_LITTLE_SYM
+#undef  TARGET_LITTLE_NAME
+
+#undef  TARGET_BIG_SYM
+#define TARGET_BIG_SYM	powerpc_elf64_celloslv2_vec
+#undef  TARGET_BIG_NAME
+#define TARGET_BIG_NAME "elf64-powerpc-celloslv2"
+
+#undef  ELF_OSABI
+#define	ELF_OSABI       ELFOSABI_CELLOSLV2
+
+#undef  elf64_bed
+#define elf64_bed	elf64_powerpc_celloslv2_bed
+
+#include "elf64-target.h"
